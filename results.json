@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "dataset": "SemEval-2014 Task 4 (restaurants)",
+    "source": "tomaarsen/setfit-absa-semeval-restaurants",
+    "splits": {
+      "train": 2522,
+      "val": 539,
+      "test": 541
+    },
+    "model": "distilbert-base-uncased",
+    "epochs": 6,
+    "batch_size": 16,
+    "lr": 2e-05,
+    "class_weights": [
+      1.4905437352245863,
+      1.8976674191121143,
+      0.5548954895489548
+    ],
+    "seed": 42
+  },
+  "results": {
+    "accuracy": {
+      "lexicon": 0.5194,
+      "tfidf+lr": 0.6784,
+      "distilbert": 0.7652
+    },
+    "precision": {
+      "lexicon": 0.562,
+      "tfidf+lr": 0.6095,
+      "distilbert": 0.6921
+    },
+    "recall": {
+      "lexicon": 0.5045,
+      "tfidf+lr": 0.6355,
+      "distilbert": 0.705
+    },
+    "f1": {
+      "lexicon": 0.4562,
+      "tfidf+lr": 0.6191,
+      "distilbert": 0.6971
+    }
+  },
+  "per_class_f1": {
+    "lexicon": {
+      "negative": 0.32098765432098764,
+      "neutral": 0.38333333333333336,
+      "positive": 0.6642857142857143
+    },
+    "tfidf+lr": {
+      "negative": 0.5375494071146245,
+      "neutral": 0.5327102803738317,
+      "positive": 0.7869918699186992
+    },
+    "distilbert": {
+      "negative": 0.6386554621848739,
+      "neutral": 0.5797101449275363,
+      "positive": 0.8728414442700158
+    }
+  }
+}
