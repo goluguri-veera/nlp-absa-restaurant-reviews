@@ -11,6 +11,7 @@ Given a customer review and a target aspect term mentioned in it, predict the se
 > "The pasta was amazing but service was slow."
 
 | Aspect | Predicted sentiment |
+|---|---|
 | pasta | positive |
 | service | negative |
 
@@ -25,6 +26,7 @@ After dropping the rare `conflict` class, we work with **3,602 (text, aspect, se
 ## Models
 
 | Model | Approach |
+|---|---|
 | Lexicon | Hand-crafted positive/negative word lists; majority vote per review. |
 | TF-IDF + LR | Aspect prepended to text; bigram TF-IDF features; balanced logistic regression. |
 | **DistilBERT (ours)** | `distilbert-base-uncased` fine-tuned with `[CLS] aspect [SEP] review [SEP]` input format, weighted cross-entropy, early stopping on validation macro-F1. |
@@ -32,6 +34,7 @@ After dropping the rare `conflict` class, we work with **3,602 (text, aspect, se
 ## Results (test set, n=541)
 
 | Model | Accuracy | Precision | Recall | F1 (macro) |
+|---|---|---|---|---|
 | Lexicon | 0.5194 | 0.5620 | 0.5045 | 0.4562 |
 | TF-IDF + LR | 0.6784 | 0.6095 | 0.6355 | 0.6191 |
 | **DistilBERT** | **0.7652** | **0.6921** | **0.7050** | **0.6971** |
@@ -41,6 +44,7 @@ DistilBERT improves macro-F1 by **+7.80 percentage points** over the strongest b
 ### Per-class F1 (DistilBERT)
 
 | Class | F1 |
+|---|---|
 | Negative | 0.639 |
 | Neutral | 0.580 |
 | Positive | 0.873 |
@@ -61,6 +65,7 @@ Open `absa_distilbert_Ass3.ipynb` in Colab and run all cells. Total runtime is ~
 ## Repository contents
 
 | File | Description |
+|---|---|
 | `absa_distilbert_Ass3.ipynb` | End-to-end Colab notebook |
 | `results.json`, `results.csv` | Final metrics for all three models |
 | `errors.csv` | DistilBERT misclassifications for error analysis |
